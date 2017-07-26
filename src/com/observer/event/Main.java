@@ -3,7 +3,11 @@ package com.observer.event;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * 所有的监听者共同拥有的事件(对被观察者做出的反应),这是被抽象出来的
+ * @author 竹
+ *
+ */
 interface ActionListener {
 	public void ActionToWakenUp(ActionEvent wakenUpEvent);
 }
