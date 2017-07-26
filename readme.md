@@ -15,5 +15,6 @@
 # 观察者模式
 观察者模式中核心理念就是化主动为被动，将我去主动处理他，换成他主动来被处理。大体上是在被观察者身上添加一个监听。要明白观察者和被观察者之间的关系
 
-#reactor模式
-要理解nio.pdf中描述的reactor pattern
+# reactor模式
+要理解nio.pdf中描述的reactor pattern 
+*具体查看https://github.com/iluwatar/java-design-patterns
