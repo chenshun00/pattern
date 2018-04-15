@@ -18,3 +18,14 @@
 
 # 适配器模式
 在查看 `Spring` 中的 `HandlerMapping` 和 `HandlerAdapter` 时发现了适配器的使用
+
+
+# 加入监听器 
+    *   事件驱动监听器.根据某个时间触发
+       
+        `tomcat` 组件启动, `blade` 触发某个时间
+         
+    *   监听启动. 仅执行一次
+    
+        `Listener` Servlet 规范
+    
