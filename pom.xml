@@ -9,13 +9,35 @@
     <packaging>jar</packaging>
     <version>1.0.0-SNAPSHOT</version>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <version-cglib>3.2.4</version-cglib>
+        <version-lombok>1.16.18</version-lombok>
+        <version-slf4j-apj>1.7.25</version-slf4j-apj>
+        <version-slf4j-log4j12>1.7.21</version-slf4j-log4j12>
+    </properties>
 
 
     <dependencies>
         <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${version-slf4j-apj}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${version-slf4j-log4j12}</version>
+        </dependency>
+        <dependency>
             <groupId>cglib</groupId>
             <artifactId>cglib</artifactId>
-            <version>3.2.4</version>
+            <version>${version-cglib}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${version-lombok}</version>
         </dependency>
     </dependencies>
 
