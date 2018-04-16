@@ -19,6 +19,10 @@ public class GlobalContext {
 
     private Map<String,Object> context = new ConcurrentHashMap<>(16);
 
+    public void startListener(){
+        listenerManager.trigger();
+    }
+
     private GlobalContext(){
         InputStream resourceAsStream = GlobalContext.class.getClassLoader().
                 getResourceAsStream("listener.properties");

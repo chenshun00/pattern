@@ -11,9 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class App {
     public static void main(String[] args) {
-        log.debug("12 {}","chen");
-        log.info("12 {}","chen");
-        log.error("12 {}","chen");
-        log.warn("12 {}","chen");
+        GlobalContext instance = GlobalContext.getInstance();
+        instance.startListener();
     }
 }
