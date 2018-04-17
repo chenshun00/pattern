@@ -15,7 +15,7 @@ public class ClassKit {
             aClass = Class.forName(name);
             try {
                 o = aClass.newInstance();
-                if (o == null){
+                if (o == null) {
                     throw new Exception("反射异常");
                 }
             } catch (Exception e) {

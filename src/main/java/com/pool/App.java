@@ -8,6 +8,13 @@ package com.pool;
  */
 public class App {
     public static void main(String[] args) {
-
+        ResoureContext me = ResoureContext.me(Source.class);
+        for (int i = 0; i < 20; i++) {
+          new Thread(() -> {
+              Source acquire = (Source) me.acquire();
+              acquire.exec();
+              me.release(acquire);
+          }).start();
+        }
     }
 }
