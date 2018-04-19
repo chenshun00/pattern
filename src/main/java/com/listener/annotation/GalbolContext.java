@@ -12,8 +12,9 @@ public class GalbolContext {
      * static inner class (single)
      */
     private static class GalbolContextHolder{
+        private final static GalbolContext ME = new GalbolContext();
         private static GalbolContext me(){
-            return new GalbolContext();
+            return ME;
         }
     }
 
