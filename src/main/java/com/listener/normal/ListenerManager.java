@@ -42,8 +42,9 @@ public class ListenerManager {
     private List<Listener> listeners = new ArrayList<>();
 
     private static class ListenerManagerHolder {
+        private final static ListenerManager ME = new ListenerManager();
         private static ListenerManager me() {
-            return new ListenerManager();
+            return ME;
         }
     }
 
