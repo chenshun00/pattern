@@ -1,3 +1,9 @@
+# how to run
+    *   java 1.8 (java -version)
+    *   install maven(mvn -version)
+    *   install lombok
+    *   add dependency
+
 # 责任链模式
 
     责任链模式主要还是在于链条管理者的使用，将管理者作为整个过滤器的核心，就能让人很容易的理解整个责任链模式的作用方式，具体的使用场景有netty对出站和入站数据的处理，有一个pipeline来作为handler的管理者，可以对数据进行处理，包括了encoder，TCP拆包和粘包等等
@@ -37,3 +43,8 @@
     
 # 加入缓存池(使用信号量)
     *   某些消耗比较大的对象，在项目启动之初建立好. 适用于自定义实现各种大对象的缓存池使用.
+    
+# add thread pool
+    
+*  extend thread poll by changing some variables about thread pool(name,deamon..etc) 
+    in order to print log or ...
