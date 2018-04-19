@@ -13,6 +13,19 @@ public enum EventType{
 
     FIRST("监听事件1"),SECOND("监听事件2"),THIRD("监听事件3");
 
+
+    public String getEventValue(String name){
+        Optional<EventType> first = Stream.of(EventType.values())
+                .filter(eventType -> eventType.desc.equals(name.trim()))
+                .findFirst();
+        EventType eventType = first.orElse(null);
+        if (eventType==null){
+            return "";
+        }else {
+            return eventType.desc;
+        }
+    }
+
     private String desc;
 
     EventType(String desc) {
