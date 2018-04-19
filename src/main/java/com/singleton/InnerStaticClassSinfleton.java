@@ -8,8 +8,9 @@ package com.singleton;
 public class InnerStaticClassSinfleton {
     private InnerStaticClassSinfleton(){}
     private static class InnerStaticClassSinfletonHolder{
-        public static InnerStaticClassSinfleton me(){
-            return new InnerStaticClassSinfleton();
+        private final static InnerStaticClassSinfleton ME = new InnerStaticClassSinfleton();
+        private static InnerStaticClassSinfleton me(){
+            return ME;
         }
     }
     public static InnerStaticClassSinfleton me(){
