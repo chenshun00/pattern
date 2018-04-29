@@ -4,6 +4,9 @@
     *   install lombok
     *   add dependency
 
+# cache pool 
+    * Design two Map to study cache pool ,also we can know master/slave(mysql).   
+
 #   async 
     > RPC
 
@@ -16,9 +19,8 @@
         1. handled successful , then return or execute something
         2. handle by next .
     
-#迭代器模式
-唯一给我的感觉就是有一句话讲的很多，计算机中不能解决的问题都能通过加一个中间层来解决
-
+# Iteator
+    one interface and many sub class , we can add a middle ware handling the diff
 
 # 策略模式
 策略模式就是在进行‘计算’，‘比较’的时候不要将具体的比较（计算）策略写死，而是动态根据上下文的情况具体的策略进行运算，从而具有了较强的拓展性.
