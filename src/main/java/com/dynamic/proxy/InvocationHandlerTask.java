@@ -1,5 +1,7 @@
 package com.dynamic.proxy;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
@@ -8,6 +10,7 @@ import java.lang.reflect.Method;
  * @author 竹
  * date 2017/7/25
  */
+@Slf4j
 public class InvocationHandlerTask  implements InvocationHandler {
     private Object object;
 
@@ -15,19 +18,12 @@ public class InvocationHandlerTask  implements InvocationHandler {
         this.object = object;
     }
 
-    private void before(){
-        System.out.println("开始前的前期工作");
-        System.out.println("发生某件事");
+    private void before(Object proxy){
+        log.debug("proxy =  {}",proxy.getClass().getName());
     }
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        before();
-        Object result = method.invoke(object,args);
-        after();
-        return result;
-    }
-    private void after(){
-        System.out.println("记录日志");
-        System.out.println("结束后的清理工作");
+        before(proxy);
+        return method.invoke(object,args);
     }
 }

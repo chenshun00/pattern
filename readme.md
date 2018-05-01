@@ -4,8 +4,14 @@
     *   install lombok
     *   add dependency
 
+
+# proxy
+#### Articles
+
+   *   [理解动态代理及动态代理在RPC中的应用](!https://blog.csdn.net/nyyjs/article/details/77850523)
+
 # cache pool 
-    * Design two Map to study cache pool ,also we can know master/slave(mysql).   
+   * Design two Map to study cache pool ,also we can know master/slave(mysql).   
 
 #   async 
     > RPC

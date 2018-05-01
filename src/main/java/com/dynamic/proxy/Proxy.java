@@ -1,5 +1,8 @@
 package com.dynamic.proxy;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.lang.reflect.InvocationHandler;
 
 /**
@@ -9,6 +12,8 @@ import java.lang.reflect.InvocationHandler;
  */
 public class Proxy {
 
+    @Setter
+    @Getter
     private Object target;
 
     public Proxy(Object target){
@@ -16,8 +21,7 @@ public class Proxy {
     }
 
     public static Object newProxy(ClassLoader loader,Class<?>[] interfaces, InvocationHandler h){
-        Run target = (Run)java.lang.reflect.Proxy.newProxyInstance(loader,interfaces,h);
-        return target;
+        return java.lang.reflect.Proxy.newProxyInstance(loader,interfaces,h);
     }
 
 }
