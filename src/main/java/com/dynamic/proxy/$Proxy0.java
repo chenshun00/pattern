@@ -4,6 +4,9 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.UndeclaredThrowableException;
 
+/**
+ * <P> Proxy implements Run(interface)  </P>
+ */
 public final class $Proxy0 extends java.lang.reflect.Proxy implements Run {
     private static Method m1;
     private static Method m3;
