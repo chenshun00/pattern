@@ -19,6 +19,9 @@ import java.util.stream.Stream;
  */
 @Slf4j
 public class App {
+    static {
+        System.getProperties().put("sun.misc.ProxyGenerator.saveGeneratedFiles", "true");
+    }
     public static void main(String[] args) throws Exception{
         //RPC ---> ClassName  methodName args, argsType
         //ClassName(from client's request)  ---> client is Interface,server is implement class

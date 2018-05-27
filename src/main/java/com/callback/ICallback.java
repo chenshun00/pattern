@@ -11,4 +11,10 @@ public interface ICallback {
 
     void call();
 
+    /**
+     * default method
+     */
+    default void execute(){
+        //todo do something
+    }
 }
