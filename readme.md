@@ -1,7 +1,7 @@
 # how to run
     *   java 1.8 (java -version)
     *   install maven(mvn -version)
-    *   install lombok
+    *   install lombok plugin and enable annotation process
     *   add dependency
 
 
@@ -10,7 +10,8 @@
 
    *   [理解动态代理及动态代理在RPC中的应用](!https://blog.csdn.net/nyyjs/article/details/77850523)
 
-# cache pool 
+# cache pool (by semaphore)
+   * init some factory object or http client object and so on.
    * Design two Map to study cache pool ,also we can know master/slave(mysql).   
 
 #   async 
@@ -45,21 +46,18 @@
 
 # 加入监听器 
     
-    *   事件驱动监听器.根据某个时间触发
+   *   事件驱动监听器.根据某个时间触发
        
         `tomcat` 组件启动, `blade` 触发某个时间，参数可以自行定义，具体的触发可以根据业务，组件进行
 
-    *   监听启动. 仅执行一次
+   *   监听启动. 仅执行一次
     
         `Listener` Servlet 规范
         
         适用于自定义实现的监听器(系统监听器是容器提供/类似于容器的框架实现)    
     
     
-# 加入缓存池(使用信号量)
-    *   某些消耗比较大的对象，在项目启动之初建立好. 适用于自定义实现各种大对象的缓存池使用.
-    
 # add thread pool
     
-*  extend thread poll by changing some variables about thread pool(name,deamon..etc) 
+   *  extend thread poll by changing some variables about thread pool(name,deamon..etc) 
     in order to print log or ...
