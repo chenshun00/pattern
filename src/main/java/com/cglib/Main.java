@@ -1,6 +1,7 @@
 package com.cglib;
 
 import net.sf.cglib.proxy.Enhancer;
+import net.sf.cglib.proxy.MethodInterceptor;
 
 /**
  * @author 竹
@@ -8,10 +9,8 @@ import net.sf.cglib.proxy.Enhancer;
  */
 public class Main {
         public static void main(String[] args) {
-            Enhancer enhancer = new Enhancer();
-            enhancer.setSuperclass(RealSubject.class);
-            enhancer.setCallback(new MethodInteceptor());
-            ISubjectService o = (ISubjectService) enhancer.create();
+            ISubjectService o = (ISubjectService) Enhancer.create(RealSubject.class, (MethodInterceptor) (obj, method, args1, proxy) ->
+                    proxy.invokeSuper(obj, args1));
             o.doService();
     }
 }
