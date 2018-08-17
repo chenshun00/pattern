@@ -21,6 +21,6 @@ public class App {
         //Runnable 是command接口，具体的实际就是具体的命令
         //thread 就是调用者，命令的接受者,具体命令的执行者就是虚拟机
         //invoke      申明命令               实现具体的命令            invoke执行命令
-        new Thread(     ()    ->     System.out.println("hello") ).start();
+        new Thread(     ()    ->     System.out.println("接受者在执行命令") ).start();
     }
 }

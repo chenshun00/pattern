@@ -15,6 +15,10 @@ import java.util.Date;
  * <p>
  * java实现原型模式仅需要实现 Cloneable 接口表示这个是可以clone的即可，然后复写Object的clone()方法
  *
+ * clone方法是不会去调用构造器方法的，并且有如下格式
+ * x.clone() != x ; x.clone().getClass() == x.getClass();
+ * 这个不是通用的要求，但是最基本的是 x.clone().equals(x)
+ *
  * @author luobo.cs@raycloud.com
  * @since 2018/8/14
  */
