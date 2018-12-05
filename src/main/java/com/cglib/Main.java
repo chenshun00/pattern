@@ -2,6 +2,7 @@ package com.cglib;
 
 import net.sf.cglib.proxy.*;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 /**
@@ -9,7 +10,7 @@ import java.lang.reflect.Method;
  * on 2018/4/15.
  */
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
         Enhancer enhancer = new Enhancer();
         enhancer.setSuperclass(RealSubject.class);
         enhancer.setNamingPolicy(new MyDefaultNamingPolicy());
@@ -31,7 +32,13 @@ public class Main {
             return 0;
         });
         RealSubject realSubject = (RealSubject) enhancer.create();
+
+        Field name = realSubject.getClass().getField("name");
+        name.setAccessible(true);
+        name.set(realSubject,"shun");
+
         System.out.println(realSubject.getClass().getName());
+        System.out.println(realSubject.getName());
         realSubject.doService();
     }
 

@@ -3,7 +3,7 @@ package com.command.example;
 /**
  * 命令模式具体场景引用
  * <p>
- * client指代我
+ * client指代我，创建一个命令，并决定接受者
  * invoke 代表终端
  * receiver 代表内核
  *

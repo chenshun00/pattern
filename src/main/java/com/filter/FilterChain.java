@@ -8,22 +8,23 @@ import java.util.List;
 /**
  * <p>description:set about IFilter</p>
  * <code>
- *     class FilterChain{
- *         private List<Filter> filter ;
- *         private Invoke invoke ;
- *         public Object doNext(){
- *              //compare index and filter's size,
- *              if(index equals size -1 ){
- *                  invoke.invoke();
- *              }else{
- *                  filter.get(++index).handle(this);
- *              }
- *         }
- *         get...  set...
- *     }
+ * class FilterChain{
+ * private List<Filter> filter ;
+ * private Invoke invoke ;
+ * public Object doNext(){
+ * //compare index and filter's size,
+ * if(index equals size -1 ){
+ * invoke.invoke();
+ * }else{
+ * filter.get(++index).handle(this);
+ * }
+ * }
+ * get...  set...
+ * }
  * </code>
+ *
  * @author zhu
- *         on 2018/4/23.
+ * on 2018/4/23.
  */
 @Data
 @Slf4j
@@ -34,12 +35,14 @@ public class FilterChain {
      *
      * @param message the message will be handle(any param include Object)
      */
-    public void doNext(String message) {
+    public Object doNext(String message) {
         if (index == filterList.size() - 1) {
             log.info("later , do something");
+            return "111";
         } else {
-            filterList.get(++index).handle(message, this);
+            return filterList.get(++index).handle(message, this);
         }
+
     }
 
     public FilterChain(List<IFilter> filterList) {

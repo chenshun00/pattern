@@ -13,6 +13,6 @@ public interface IFilter {
 //        return true;
 //    }
 
-    void handle(String message,FilterChain filterChain);
+    Object handle(String message,FilterChain filterChain);
 
 }

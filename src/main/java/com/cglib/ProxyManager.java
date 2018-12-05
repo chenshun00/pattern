@@ -24,6 +24,8 @@ public class ProxyManager {
 
     public static void main(String[] args) {
         RealSubject proxy = createProxy(RealSubject.class, "test");
+        String name = proxy.getName();
+        System.out.println(name);
         proxy.doService();
     }
 }

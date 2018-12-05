@@ -11,7 +11,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <version-cglib>3.2.4</version-cglib>
+        <version-cglib>3.2.6</version-cglib>
         <version-lombok>1.16.18</version-lombok>
         <version-slf4j-apj>1.7.25</version-slf4j-apj>
         <version-slf4j-log4j12>1.7.20</version-slf4j-log4j12>
@@ -38,7 +38,7 @@
         <dependency>
             <groupId>cglib</groupId>
             <artifactId>cglib</artifactId>
-            <version>${version-cglib}</version>
+            <version>3.2.6</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
