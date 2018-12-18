@@ -2,6 +2,9 @@ package com.callback;
 
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * <p>
  * description:主要是理解回调函数(匿名内部类/lambda表达式/自定义回调函数)在什么时候被调用
@@ -17,12 +20,26 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class App {
     public static void main(String[] args) {
-        doCallBack(() -> log.debug("do {}", "info"));
+        doCallBack((map) -> log.debug("do {} {}", "info", map.toString()));
     }
 
+    /**
+     * 实际场景中出现的情况
+     *
+     * @param callback 用户定义接口(实现我们框架给的接口),用于回调
+     */
     private static void doCallBack(ICallback callback) {
-        log.debug("do something before callable:{}", "before");
-        callback.call();
+
+        //接受配置中心的数据并且写入上下文
+        Map<String, String> context = new HashMap<>();
+        context.put("info", "info");
+        log.debug("do something before callable:{} 做一些任务上的处理，例如配置中心参数变更,接受数据推送", "before");
+        try {
+            callback.call(context);
+        } catch (Exception e) {
+            log.error("处理回调过程出现异常:" + e.getMessage(), e);
+        }
+        //回调处理结束
         log.debug("do something after callable:{}", "after");
     }
 }
