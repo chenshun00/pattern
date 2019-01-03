@@ -3,7 +3,7 @@ package com.cglib.aop;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @author luobo.cs@raycloud.com
+ * @author chenshun00@gmail.com
  * @since 2018/9/13
  */
 @Slf4j

@@ -6,7 +6,7 @@ import java.util.Date;
 /**
  * 一个简单的builder，在很多field的情况下会提高可阅读性，不适合参数较少的情况
  *
- * @author luobo.cs@raycloud.com
+ * @author chenshun00@gmail.com
  * @since 2018/8/9
  */
 public class User implements Serializable {

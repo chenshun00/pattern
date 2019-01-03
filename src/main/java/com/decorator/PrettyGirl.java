@@ -3,7 +3,7 @@ package com.decorator;
 /**
  * 装饰接口
  *
- * @author luobo.cs@raycloud.com
+ * @author chenshun00@gmail.com
  * @since 2018/8/15
  */
 public interface PrettyGirl {

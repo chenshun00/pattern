@@ -3,7 +3,7 @@ package com.command;
 /**
  * 命令模式
  *
- * @author luobo.cs@raycloud.com
+ * @author chenshun00@gmail.com
  * @since 2018/8/16
  */
 public class App {

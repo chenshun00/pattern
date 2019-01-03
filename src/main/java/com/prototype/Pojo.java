@@ -11,7 +11,7 @@ import java.util.Date;
 /**
  * 使用clone拷贝的时候，是不执行构造函数的，切记
  *
- * @author luobo.cs@raycloud.com
+ * @author chenshun00@gmail.com
  * @since 2018/8/14
  */
 @Getter

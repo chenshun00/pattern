@@ -19,7 +19,7 @@ import java.util.Date;
  * x.clone() != x ; x.clone().getClass() == x.getClass();
  * 这个不是通用的要求，但是最基本的是 x.clone().equals(x)
  *
- * @author luobo.cs@raycloud.com
+ * @author chenshun00@gmail.com
  * @since 2018/8/14
  */
 @Slf4j

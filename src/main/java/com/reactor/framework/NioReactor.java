@@ -39,6 +39,8 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * accepter线程，用户监听端口
+ * <p>
  * This class acts as Synchronous Event De-multiplexer and Initiation Dispatcher of Reactor pattern. Multiple handles
  * i.e. {@link AbstractNioChannel}s can be registered to the reactor and it blocks for events from all these handles.
  * Whenever an event occurs on any of the registered handles, it synchronously de-multiplexes the event which can be any
@@ -125,9 +127,8 @@ public class NioReactor {
      * @throws IOException if any I/O error occurs.
      */
     public NioReactor registerChannel(AbstractNioChannel channel) throws IOException {
-        SelectionKey key = channel.getJavaChannel().register(selector, channel.getInterestedOps());
-        //attach 很重要
-        key.attach(channel);
+        log.debug("channel:{}",channel);
+        SelectionKey key = channel.getJavaChannel().register(selector, channel.getInterestedOps(), channel);
         channel.setReactor(this);
         return this;
     }
@@ -140,12 +141,13 @@ public class NioReactor {
                 break;
             }
 
-            // honor any pending commands first
+            // honor any pending commands first , 我们提交的task
             processPendingCommands();
 
             /*
              * Synchronous event de-multiplexing happens here, this is blocking call which returns when it is possible to
              * initiate non-blocking operation on any of the registered channels.
+             * 选择发生了io事件的key,读取，写入，连接
              */
             selector.select();
 
@@ -182,6 +184,10 @@ public class NioReactor {
      * the event.
      */
     private void processKey(SelectionKey key) throws IOException {
+        if (!key.isValid()) {
+            log.error("key 无效");
+            return;
+        }
         if (key.isAcceptable()) {
             onChannelAcceptable(key);
         } else if (key.isReadable()) {
@@ -199,6 +205,7 @@ public class NioReactor {
     private void onChannelReadable(SelectionKey key) {
         try {
             // reads the incoming data in context of reactor main loop. Can this be improved?
+            log.info("key.channel():{},key.attachment():{}", key.channel(), key.attachment());
             Object readObject = ((AbstractNioChannel) key.attachment()).read(key);
 
             dispatchReadEvent(key, readObject);

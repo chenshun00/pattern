@@ -34,8 +34,7 @@ import java.nio.channels.SocketChannel;
 import java.nio.channels.spi.SelectorProvider;
 
 /**
- * A wrapper over {@link NioServerSocketChannel} which can read and write data on a
- * {@link SocketChannel}.
+ * 包装了 {@link ServerSocketChannel} ,能够从 {@link SocketChannel}读取或者写入数据
  */
 @Slf4j
 public class NioServerSocketChannel extends AbstractNioChannel {
@@ -44,15 +43,8 @@ public class NioServerSocketChannel extends AbstractNioChannel {
     private static SelectorProvider selectorProvider = SelectorProvider.provider();
 
     /**
-     * Creates a {@link ServerSocketChannel} which will bind at provided port and use
-     * <code>handler</code> to handle incoming events on this channel.
-     * <p>
-     * Note the constructor does not bind the socket, {@link #bind()} method should be called for
-     * binding the socket.
-     *
-     * @param port    the port on which channel will be bound to accept incoming connection requests.
-     * @param handler the handler that will handle incoming requests on this channel.
-     * @throws IOException if any I/O error occurs.
+     * 构造器方法，主要使用selectorProvider打开一个channel ,可以看看
+     * <a href="https://github.com/netty/netty/issues/2308">#2308</a>.
      */
     public NioServerSocketChannel(int port, ChannelHandler handler) throws IOException {
         super(handler, selectorProvider.openServerSocketChannel());
@@ -92,9 +84,7 @@ public class NioServerSocketChannel extends AbstractNioChannel {
     }
 
     /**
-     * Binds TCP socket on the provided <code>port</code>.
-     *
-     * @throws IOException if any I/O error occurs.
+     * 监听端口,相较于 <a href="https://github.com/netty/netty">netty</a> 到不断回调，这里到处理比较简单，直接处理了
      */
     @Override
     public void bind() throws IOException {

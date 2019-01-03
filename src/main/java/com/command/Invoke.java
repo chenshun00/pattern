@@ -7,7 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * 命令的管理者
  *
- * @author luobo.cs@raycloud.com
+ * @author chenshun00@gmail.com
  * @since 2018/8/16
  */
 @Data

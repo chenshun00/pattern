@@ -7,7 +7,7 @@ package com.command.example;
  * invoke 代表终端
  * receiver 代表内核
  *
- * @author luobo.cs@raycloud.com
+ * @author chenshun00@gmail.com
  * @since 2018/8/17
  */
 public class Client {

@@ -22,8 +22,9 @@ public class NioStudy {
         //绑定这个channel上的socket
         ServerSocket socket = server.socket();
         socket.bind(new InetSocketAddress(8088));
-
+        //获取selector
         Selector selector = selectorProvider.openSelector();
+        //注册channel到 连接事件上，等待前来连接到tcp#channel
         server.register(selector, SelectionKey.OP_ACCEPT);
         Thread.sleep(10000000000L);
 

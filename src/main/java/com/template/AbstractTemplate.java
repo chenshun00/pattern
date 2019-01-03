@@ -9,7 +9,7 @@ import lombok.extern.slf4j.Slf4j;
  * template pattern:the abstract template
  * </p>
  *
- * @author luobo.cs@raycloud.com
+ * @author chenshun00@gmail.com
  * @since 2018/8/5
  */
 @Slf4j

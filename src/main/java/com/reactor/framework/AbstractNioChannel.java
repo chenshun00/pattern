@@ -32,15 +32,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
- * This represents the <i>Handle</i> of Reactor pattern. These are resources managed by OS which can
- * be submitted to {@link NioReactor}.
- * <p>
- * <p>
- * This class serves has the responsibility of reading the data when a read event occurs and writing
- * the data back when the channel is writable. It leaves the reading and writing of data on the
- * concrete implementation. It provides a block writing mechanism wherein when any
- * {@link ChannelHandler} wants to write data back, it queues the data in pending write queue and
- * clears it in block manner. This provides better throughput.
+ * 代表了一个channel，能够从连接到通道中读取和写入数据，一旦感知到有数据可读取，或者需要写入数据就会触发handler中到处理器，fire
  */
 public abstract class AbstractNioChannel {
 
