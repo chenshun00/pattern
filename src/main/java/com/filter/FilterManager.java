@@ -36,7 +36,7 @@ public class FilterManager {
 
     private void check(IFilter filter){
         if (filterList.contains(filter)){
-            throw new IllegalArgumentException("duplice filter,planse check agiin :" + filter);
+            throw new IllegalArgumentException("duplicate filter,please check again :" + filter);
         }
     }
 
